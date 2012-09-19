@@ -1,0 +1,9 @@
+.deps
+.libs
+cfgtest
+reread
+simple
+simple.conf.out
+test.conf.out
+ftpconf
+*.o
