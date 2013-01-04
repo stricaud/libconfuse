@@ -15,16 +15,16 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+// #ifdef HAVE_CONFIG_H
+# include <confuse/config.h>
+// #endif
 
 #include <assert.h>
 
 #ifdef HAVE_STRING_H
 # include <string.h>
 #endif
-#include "confuse.h"
+#include <confuse/confuse.h>
 
 #include <errno.h>
 

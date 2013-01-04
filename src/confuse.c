@@ -14,15 +14,17 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifdef HAVE_CONFIG_H
-# include <config.h>
-#endif
+/* #ifdef HAVE_CONFIG_H */
+# include <confuse/config.h>
+/* #endif */
 
 #include <sys/types.h>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <errno.h>
+#include <strings.h>
+
 #ifndef _WIN32
 # include <pwd.h>
 #endif
@@ -35,7 +37,7 @@
 # include <sys/stat.h>
 #endif
 
-#include "confuse.h"
+#include <confuse/confuse.h>
 
 #define is_set(f, x) (((f) & (x)) == (f))
 

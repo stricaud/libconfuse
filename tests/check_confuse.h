@@ -1,7 +1,7 @@
 #ifndef _check_confuse_h_
 #define _check_confuse_h_
 
-#include "../src/confuse.h"
+#include <confuse/confuse.h>
 #include <stdlib.h>
 
 #define fail_unless(test) \
