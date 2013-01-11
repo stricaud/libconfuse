@@ -1,7 +1,9 @@
-#include "confuse.h"
 #include <string.h>
 #include <signal.h>
 #include <unistd.h>
+
+#include <confuse/confuse.h>
+
 
 cfg_t *cfg = 0;
 const char *config_filename = "./reread.conf";

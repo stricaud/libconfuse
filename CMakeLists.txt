@@ -7,6 +7,8 @@ set(CONFUSE_INLINE_BUILD true)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${confuse_SOURCE_DIR}/cmake)
 
+set(CMAKE_VERBOSE_MAKEFILE true)
+
 set(CMAKE_BUILD_TYPE "Release")
 
 if (DEBUG_MODE)
@@ -59,7 +61,13 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   add_definitions(-DMACOS=1)
 endif()
 
+# Mac OS Specifics
+if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  add_definitions(-DWIN32=1)
+endif()
+
 set(CONFUSE_INCLUDE_DIRS "${confuse_SOURCE_DIR}/src/include/")
 
+add_subdirectory(examples)
 add_subdirectory(src)
 add_subdirectory(tests)

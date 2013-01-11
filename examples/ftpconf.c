@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include <confuse.h>
+
+#include <confuse/confuse.h>
 
 /* valid values for the auto-create-bookmark option */
 #define ACB_YES 1

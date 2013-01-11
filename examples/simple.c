@@ -1,7 +1,8 @@
 #define _GNU_SOURCE
 #include <string.h>
 #include <stdlib.h>
-#include "confuse.h"
+
+#include <confuse/confuse.h>
 
 int main(void)
 {
