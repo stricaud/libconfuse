@@ -9,7 +9,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${confuse_SOURCE_DIR}/cmake)
 
 set(CMAKE_VERBOSE_MAKEFILE true)
 
-set(CMAKE_BUILD_TYPE "Release")
+# set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_BUILD_TYPE "Debug")
 
 if (DEBUG_MODE)
 set(CMAKE_BUILD_TYPE "Debug")
