@@ -89,6 +89,12 @@ cfg_t *parse_conf(const char *filename)
         CFG_END()
     };
 
+    /* bookmark_opts = cfg_init_opts(); */
+    /* cfg_opts_add_string("host", "", CFGF_NODEFAULT); */
+    /* cfg_opts_add_integer("port", "", CFGF_NONE); */
+    /* cfg_opts_add_string("login", "anonymouse", CFGF_NONE); */
+
+
     cfg_t *cfg = cfg_init(opts, CFGF_NONE);
     cfg_set_validate_func(cfg, "bookmark|port", conf_validate_port);
     cfg_set_validate_func(cfg, "bookmark", conf_validate_bookmark);

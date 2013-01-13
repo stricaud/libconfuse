@@ -28,7 +28,7 @@ int main(void)
         CFG_SIMPLE_STR("user", &username),
         CFG_SIMPLE_INT("debug", &debug),
         CFG_SIMPLE_FLOAT("delay", &delay),
-        /* CFG_END() */
+        CFG_END()
     };
     cfg_t *cfg;
 
