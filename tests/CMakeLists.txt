@@ -45,3 +45,7 @@ add_test(TestInclude include)
 add_executable(searchpath searchpath.c)
 target_link_libraries(searchpath ${CONFUSE_LIBRARIES})
 add_test(TestSearchPath searchpath)
+
+add_executable(opts_array opts_array.c)
+target_link_libraries(opts_array ${CONFUSE_LIBRARIES})
+add_test(TestOptsArray opts_array)

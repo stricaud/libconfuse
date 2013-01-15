@@ -69,6 +69,6 @@ endif()
 
 set(CONFUSE_INCLUDE_DIRS "${confuse_SOURCE_DIR}/src/include/")
 
-add_subdirectory(examples)
 add_subdirectory(src)
+add_subdirectory(examples)
 add_subdirectory(tests)

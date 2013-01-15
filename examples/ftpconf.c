@@ -70,7 +70,7 @@ int conf_validate_bookmark(cfg_t *cfg, cfg_opt_t *opt)
 cfg_t *parse_conf(const char *filename)
 {
     static cfg_opt_t bookmark_opts[] = {
-        CFG_STR("host", 0, CFGF_NODEFAULT),
+        CFG_STR("host", NULL, CFGF_NODEFAULT),
         CFG_INT("port", 21, CFGF_NONE),
         CFG_STR("login", "anonymous", CFGF_NONE),
         CFG_STR("password", "anonymous@", CFGF_NONE),
