@@ -25,16 +25,16 @@ void cfg_opts_array_free(cfg_opts_array_t *opts_array)
 void cfg_opts_array_append_string(cfg_opts_array_t *opts_array, const char *key, const char *default_value, int flags)
 {
   /* cfg_opt_t cfg_opt[] = {CFG_STR(key, default_value, flags), CFG_END()}; */
-    cfg_opt_t opts[] = {
-        CFG_SIMPLE_BOOL("verbose", &verbose),
-        CFG_SIMPLE_STR("server", &server),
-        CFG_SIMPLE_STR("user", &username),
-        CFG_SIMPLE_INT("debug", &debug),
-        CFG_SIMPLE_FLOAT("delay", &delay),
-        CFG_END()
-    };
+  //    cfg_opt_t opts[] = {
+  //        CFG_SIMPLE_BOOL("verbose", &verbose),
+  //        CFG_SIMPLE_STR("server", &server),
+  //        CFG_SIMPLE_STR("user", &username),
+  //        CFG_SIMPLE_INT("debug", &debug),
+  //        CFG_SIMPLE_FLOAT("delay", &delay),
+  //        CFG_END()
+  //    };
 
-  cfg_opt_print(opts, stdout);
+  //  cfg_opt_print(opts, stdout);
 
   /* utarray_push_back(opts_array, &cfg_opt); */
 }

@@ -11,16 +11,24 @@
 
 set(CONFUSE_DEFINITIONS "")
 
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  add_definitions(-DMACOS=1)
+endif()
+
+
 if(CONFUSE_INLINE_BUILD)
+	set(CONFUSE_FOUND true)
+	set(CONFUSE_INCLUDE_DIR "${confuse_SOURCE_DIR}/src/include")
+	set(CONFUSE_LIBRARY "${confuse_BINARY_DIR}/src/libconfuse.so")
+
 	if(WIN32)
-		set(CONFUSE_FOUND true)
 		set(CONFUSE_INCLUDE_DIR "${confuse_SOURCE_DIR}\\src\\include")
-		set(CONFUSE_LIBRARY "${confuse_SOURCE_DIR}\\src\\${CMAKE_BUILD_TYPE}\\confuse.lib")
-	else(WIN32)
-		set(CONFUSE_FOUND true)
-		set(CONFUSE_INCLUDE_DIR "${confuse_SOURCE_DIR}/src/include")
-		set(CONFUSE_LIBRARY "${confuse_SOURCE_DIR}/src/libconfuse.so")
-	endif(WIN32)
+		set(CONFUSE_LIBRARY "${confuse_BINARY_DIR}\\src\\${CMAKE_BUILD_TYPE}\\confuse.lib")
+	endif()
+	if(APPLE)
+		set(CONFUSE_LIBRARY "${confuse_BINARY_DIR}/src/libconfuse.dylib")
+	endif()
+
 else(CONFUSE_INLINE_BUILD)
 	find_path(CONFUSE_INCLUDE_DIR confuse/confuse.h
 	          HINTS "../src/include" ${CONFUSE_INCLUDEDIR}

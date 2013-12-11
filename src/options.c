@@ -5,6 +5,11 @@
 
 #include <confuse/confuse.h>
 
+int cfg_lexer_include(cfg_t *cfg, const char *filename);
+void cfg_scan_string_begin(const char *buf);
+void cfg_scan_string_end(void);
+
+
 static void cfg_indent(FILE *fp, int indent)
 {
     while(indent--)
@@ -223,7 +228,7 @@ cfg_setopt(cfg_t *cfg, cfg_opt_t *opt, char *value)
                 }
                 if(val && is_set(CFGF_NO_TITLE_DUPES, opt->flags))
                 {
-                    cfg_error(cfg, _("found duplicate title '%s'"), value);
+                    cfg_error(cfg, "found duplicate title '%s'", value);
                     return 0;
                 }
             }
@@ -248,14 +253,14 @@ cfg_setopt(cfg_t *cfg, cfg_opt_t *opt, char *value)
                 val->number = strtol(value, &endptr, 0);
                 if(*endptr != '\0')
                 {
-                    cfg_error(cfg, _("invalid integer value for option '%s'"),
+                    cfg_error(cfg, "invalid integer value for option '%s'",
                               opt->name);
                     return 0;
                 }
                 if(errno == ERANGE)
                 {
                     cfg_error(cfg,
-                          _("integer value for option '%s' is out of range"),
+                          "integer value for option '%s' is out of range",
                               opt->name);
                     return 0;
                 }
@@ -275,14 +280,14 @@ cfg_setopt(cfg_t *cfg, cfg_opt_t *opt, char *value)
                 if(*endptr != '\0')
                 {
                     cfg_error(cfg,
-                          _("invalid floating point value for option '%s'"),
+                          "invalid floating point value for option '%s'",
                               opt->name);
                     return 0;
                 }
                 if(errno == ERANGE)
                 {
                     cfg_error(cfg,
-                  _("floating point value for option '%s' is out of range"),
+                  "floating point value for option '%s' is out of range",
                               opt->name);
                     return 0;
                 }
@@ -331,7 +336,7 @@ cfg_setopt(cfg_t *cfg, cfg_opt_t *opt, char *value)
                 b = cfg_parse_boolean(value);
                 if(b == -1)
                 {
-                    cfg_error(cfg, _("invalid boolean value for option '%s'"),
+                    cfg_error(cfg, "invalid boolean value for option '%s'",
                               opt->name);
                     return 0;
                 }
@@ -421,7 +426,7 @@ DLLIMPORT int cfg_include(cfg_t *cfg, cfg_opt_t *opt, int argc,
     opt = NULL;
     if(argc != 1)
     {
-        cfg_error(cfg, _("wrong number of arguments to cfg_include()"));
+        cfg_error(cfg, "wrong number of arguments to cfg_include()");
         return 1;
     }
     return cfg_lexer_include(cfg, argv[0]);

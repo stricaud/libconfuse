@@ -1,6 +1,6 @@
 include_directories(AFTER "include/")
 
-FLEX_TARGET(Scanner lexer.l  ${CMAKE_CURRENT_BINARY_DIR}/lexer.c COMPILE_FLAGS "-Pcfg_yy")
+FLEX_TARGET(Scanner ${confuse_SOURCE_DIR}/src/lexer.l  ${CMAKE_CURRENT_BINARY_DIR}/lexer.c COMPILE_FLAGS "-Pcfg_yy")
 
 set(CONFUSE_SRC_FILES
   confuse.c

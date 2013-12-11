@@ -28,14 +28,6 @@
 
 #include <errno.h>
 
-#if defined(ENABLE_NLS) && defined(HAVE_GETTEXT)
-# include <libintl.h>
-# define _(str) dgettext(PACKAGE, str)
-#else
-# define _(str) str
-#endif
-#define N_(str) str
-
 /*
  * Prevent compilation of static input() function in generated code
  * This function is never used but GCC 4.3 will warn about it.
@@ -141,13 +133,13 @@ static YY_BUFFER_STATE string_scan_state = 0;
     unsigned int result;
     sscanf(yytext + 1, "%o", &result);
     if(result > 0xFF) {
-        cfg_error(cfg, _("invalid octal number '%s'"), yytext);
+        cfg_error(cfg, "invalid octal number '%s'", yytext);
         return 0;
     }
     qputc(result);
  }
 <dq_str>\\[0-9]+   {
-    cfg_error(cfg, _("bad escape sequence '%s'"), yytext);
+    cfg_error(cfg, "bad escape sequence '%s'", yytext);
     return 0;
 }
 <dq_str>"\\x"[0-9A-Fa-f]{1,2} { /* hexadecimal escape sequence */
@@ -222,7 +214,7 @@ static YY_BUFFER_STATE string_scan_state = 0;
     }
 }
 <sq_str><<EOF>> {
-    cfg_error(cfg, _("unterminated string constant"));
+    cfg_error(cfg, "unterminated string constant");
     return 0;
 }
 
@@ -290,7 +282,7 @@ int cfg_lexer_include(cfg_t *cfg, const char *filename)
 
     if (cfg_include_stack_ptr >= MAX_INCLUDE_DEPTH) 
       {
-        cfg_error(cfg, _("includes nested too deeply"));
+        cfg_error(cfg, "includes nested too deeply");
         return 1;
       }
 

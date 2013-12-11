@@ -28,15 +28,6 @@ extern "C" {
 # define __export
 #endif
 
-#if defined(ENABLE_NLS) && defined(HAVE_GETTEXT)
-# include <locale.h>
-# include <libintl.h>
-# define _(str) dgettext(PACKAGE, str)
-#else
-# define _(str) str
-#endif
-#define N_(str) str
-
 #define is_set(f, x) (((f) & (x)) == (f))
 
 #define STATE_CONTINUE 0
