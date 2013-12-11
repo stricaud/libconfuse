@@ -1,20 +1,12 @@
-This is libConfuse, a library for parsing configuration files. It was
-called libcfg before, but was changed to not confuse with other
-similar libraries.
+This is a confuse fork of libConfuse, a great library to parse configuration
+files. The original project can be found on http://sv.nongnu.org/projects/confuse.
 
-See the INSTALL file for installation instructions. By default, only a
-static library is built. Specify --enable-shared to the configure
-script to also build a shared library.
+I am actually confused whenever I want to have configuration files that are easy
+to read and modify. INI files are too basic, YAML becomes too weird...
 
-With libtool 1.4.2 (and/or automake 1.6.3) there is a problem building
-the sources. The libtool script expects the environment variable SED
-to point to a usable sed binary, but this variable does not get
-set. You'll have to do a "export SED=sed" (if using bash) or "setenv
-SED sed" (if using csh) before running make.
+I wanted someone simple, yet powerful, in C so I can write bindings on top and
+with CMake so I can make cross-IDE builds. The original libconfuse project
+fits perfectly. The fork is not a huge thing though, mostly CMakized and 
+create python bindings.
 
-Documentation can be built by running doxygen in the top-level
-directory. It is also available at http://www.nongnu.org/confuse/manual/.
-
-There is a project page at http://sv.nongnu.org/projects/confuse.
-Report bugs to <confuse-devel@nongnu.org>
 
