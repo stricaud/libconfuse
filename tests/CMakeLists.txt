@@ -1,6 +1,6 @@
 include_directories(AFTER ${CONFUSE_INCLUDE_DIRS})
 
-add_definitions(-DSRC_DIR=".")
+add_definitions(-DSRC_DIR="${confuse_SOURCE_DIR}/tests")
 
 add_executable(suite_single suite_single.c)
 target_link_libraries(suite_single ${CONFUSE_LIBRARIES})
@@ -46,6 +46,6 @@ add_executable(searchpath searchpath.c)
 target_link_libraries(searchpath ${CONFUSE_LIBRARIES})
 add_test(TestSearchPath searchpath)
 
-add_executable(opts_array opts_array.c)
-target_link_libraries(opts_array ${CONFUSE_LIBRARIES})
-add_test(TestOptsArray opts_array)
+add_executable(easyapi easyapi.c)
+target_link_libraries(easyapi ${CONFUSE_LIBRARIES})
+add_test(TestOptsArray easyapi)
